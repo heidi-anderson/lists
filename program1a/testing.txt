@@ -1,0 +1,387 @@
+Here is what I had in my main function when I was testing my functions:
+
+    cout << "*********************************LINKED-LISTS********************************" << endl;
+    nodePtr headptr;
+    nodePtr location;
+    nodePtr tmp;
+
+    cout << "*********Testing member function*********" << endl;
+    headptr == nullptr;
+    tmp = new(nodeRec);
+    tmp->num = 3;
+    cout << "Inserting 3 into the list" << endl;
+    insertList(tmp, headptr);
+    printList(headptr);
+    cout << "Checking to see if 3 is a member of the list" << endl;
+    memberList(3, headptr, location);
+    if(location != nullptr)
+        cout << "3 is a member of the list" << endl;
+    else
+        cout << "3 is not a member of the list" << endl;
+    cout << "Searching for 4 in the list" << endl;
+    if (location != nullptr)
+        cout << "4 is a member of the list" << endl;
+    else
+        cout << "4 is not a member of the list" << endl;
+    cout << "Determining size of list" << endl;
+    cout << "The size of the list is " << sizeList(headptr) << endl;
+    cout << endl;
+
+
+    cout << "*********Testing subset function*********" << endl;
+    nodePtr list1 = nullptr;
+    insertList(new nodeRec{1, nullptr}, list1);
+    insertList(new nodeRec{2, nullptr}, list1);
+    insertList(new nodeRec{3, nullptr}, list1);
+    std::cout << "List 1: ";
+    printList(list1);
+
+    nodePtr list2 = nullptr;
+    insertList(new nodeRec{2, nullptr}, list2);
+    insertList(new nodeRec{3, nullptr}, list2);
+    insertList(new nodeRec{4, nullptr}, list2);
+    std::cout << "List 2: ";
+    printList(list2);
+
+    nodePtr list3 = nullptr;
+    insertList(new nodeRec{2, nullptr}, list3);
+    insertList(new nodeRec{3, nullptr}, list3);
+    std::cout << "List 3: ";
+    printList(list3);
+
+    // Test subsetList function
+    nodePtr location2;
+    if (subsetList(list1, list2, location2)) {
+        std::cout << "List 1 is a subset of List 2." << std::endl;
+    } else {
+        std::cout << "List 1 is not a subset of List 2." << std::endl;
+    }
+
+    nodePtr location3;
+    if (subsetList(list3, list2, location3)) {
+        std::cout << "List 3 is a subset of List 2." << std::endl;
+    } else {
+        std::cout << "List 3 is not a subset of List 2." << std::endl;
+    }
+
+    cout << "*********Testing equality*********" << endl;
+    nodePtr list4 = nullptr;
+    insertList(new nodeRec{1, nullptr}, list4);
+    insertList(new nodeRec{2, nullptr}, list4);
+    insertList(new nodeRec{3, nullptr}, list4);
+    std::cout << "List 4: ";
+    printList(list4);
+
+    nodePtr list5 = nullptr;
+    insertList(new nodeRec{2, nullptr}, list5);
+    insertList(new nodeRec{3, nullptr}, list5);
+    insertList(new nodeRec{1, nullptr}, list5);
+    std::cout << "List 5: ";
+    printList(list5);
+
+    nodePtr list6 = nullptr;
+    insertList(new nodeRec{2, nullptr}, list6);
+    insertList(new nodeRec{3, nullptr}, list6);
+
+    std::cout << "List 6: ";
+    printList(list6);
+
+    if(areEqualLists(list4, list5))
+        cout << "List 4 and List 5 are equal" << endl;
+    else
+        cout << "List 4 and List 5 are not equal" << endl;
+    if(areEqualLists(list4, list6))
+        cout << "List 4 and List 6 are equal" << endl;
+    else
+        cout << "List 4 and List 6 are not equal" << endl;
+
+    cout << "*********Testing union*********" << endl;
+    nodePtr list7 = nullptr;
+    insertList(new nodeRec{1, nullptr}, list7);
+    insertList(new nodeRec{2, nullptr}, list7);
+    insertList(new nodeRec{3, nullptr}, list7);
+    std::cout << "List 7: ";
+    printList(list7);
+
+    nodePtr list8 = nullptr;
+    insertList(new nodeRec{4, nullptr}, list8);
+    insertList(new nodeRec{5, nullptr}, list8);
+    insertList(new nodeRec{6, nullptr}, list8);
+    std::cout << "List 8: ";
+    printList(list8);
+
+    cout << "The union of List 7 and List 8 is: ";
+    printList(theUnionLists(list7, list8));
+
+    cout << "*********Testing intersection*********" << endl;
+    nodePtr list9 = nullptr;
+    insertList(new nodeRec{1, nullptr}, list9);
+    insertList(new nodeRec{2, nullptr}, list9);
+    insertList(new nodeRec{3, nullptr}, list9);
+    std::cout << "List 9: ";
+    printList(list9);
+
+    nodePtr list0 = nullptr;
+    insertList(new nodeRec{4, nullptr}, list0);
+    insertList(new nodeRec{2, nullptr}, list0);
+    insertList(new nodeRec{6, nullptr}, list0);
+    std::cout << "List 10: ";
+    printList(list0);
+
+    cout << "The intersection of List 9 and List 10 is: ";
+    printList(theIntersectionList(list9, list0));
+
+    cout << "*********Testing difference*********" << endl;
+    nodePtr list = nullptr;
+    insertList(new nodeRec{1, nullptr}, list);
+    insertList(new nodeRec{2, nullptr}, list);
+    insertList(new nodeRec{3, nullptr}, list);
+    std::cout << "List 11: ";
+    printList(list);
+
+    nodePtr list12 = nullptr;
+    insertList(new nodeRec{4, nullptr}, list12);
+    insertList(new nodeRec{2, nullptr}, list12);
+    insertList(new nodeRec{6, nullptr}, list12);
+    std::cout << "List 12: ";
+    printList(list12);
+    cout << "The difference of List 11 and List 10 is: ";
+    printList(theDifferenceList(list, list12));
+
+    cout << "*********Testing sym difference*********" << endl;
+    nodePtr list13 = nullptr;
+    insertList(new nodeRec{1, nullptr}, list13);
+    insertList(new nodeRec{2, nullptr}, list13);
+    insertList(new nodeRec{3, nullptr}, list13);
+    std::cout << "List 13: ";
+    printList(list13);
+
+    nodePtr list14 = nullptr;
+    insertList(new nodeRec{4, nullptr}, list14);
+    insertList(new nodeRec{5, nullptr}, list14);
+    insertList(new nodeRec{3, nullptr}, list14);
+    std::cout << "List 14: ";
+    printList(list14);
+    cout << "The symmetric difference of List 13 and List 14 is: ";
+    printList(symDifferenceList(list13, list14));
+    cout << "******************************END OF LINKED LISTS******************************" << endl;
+    cout << "******************************LISTS-CLASS******************************" << endl;
+
+    sortedSingle ss1;
+    ss1.insert(1);
+    ss1.insert(2);
+    std::cout << "list 1: ";
+    ss1.print(",");
+    std::cout << std::endl;
+    int size1 = ss1.size();
+    std::cout << "List 1 has a size of " << size1 << std::endl;
+
+    sortedSingle ss2;
+    ss2.insert(1);
+    ss2.insert(2);
+    ss2.insert(3);
+    std::cout << "list 2: ";
+    ss2.print(",");
+    std::cout << std::endl;
+    int size2 = ss2.size();
+    std::cout << "List 2 has a size of " << size2 << std::endl;
+
+    if(isSubset(ss1, ss2))
+    {
+        std::cout<< "subset has worked." << std::endl;
+    }
+
+     //equality
+    sortedSingle ss3;
+    ss3.insert(2);
+    ss3.insert(3);
+    ss3.insert(1);
+    std::cout << "list 3: ";
+    ss3.print(",");
+    std::cout << std::endl;
+    int size3 = ss3.size();
+    std::cout << "List 3 has a size of " << size3 << std::endl;
+
+
+    if(!areEqual(ss1, ss2))
+    {
+        std::cout << "list1 and ss2 are not equal" << std::endl;
+    }
+    if(areEqual(ss2, ss3))
+        std::cout << "list2 and ss3 are equal" << std::endl;
+
+   //  union
+
+    sortedSingle ss4;
+    ss4.insert(1);
+    ss4.insert(2);
+    ss4.insert(3);
+
+    sortedSingle ss5;
+    ss5.insert(2);
+    ss5.insert(3);
+    ss5.insert(4);
+    cout << "Union" << endl;
+    sortedSingle theUnion1 = theUnion(ss4, ss5); // 1 2 3 4
+    theUnion1.print(",");
+    cout << endl;
+ //intersection
+    sortedSingle ss6;
+    ss6.insert(1);
+    ss6.insert(2);
+    ss6.insert(3);
+
+    sortedSingle ss7;
+    ss7.insert(2);
+    ss7.insert(3);
+    ss7.insert(4);
+    cout << "Intersection" << endl;
+    sortedSingle result = theIntersection(ss6, ss7); // 2, 3
+    result.print(", ");
+    cout << endl;
+
+//     difference
+    sortedSingle ss8;
+    ss8.insert(1);
+    ss8.insert(2);
+    ss8.insert(3);
+
+    sortedSingle ss9;
+    ss9.insert(3);
+    ss9.insert(2);
+    ss9.insert(4);
+    cout << "Difference" << endl;
+    sortedSingle difference = theDifference(ss8, ss9);
+    difference.print(",");
+    cout << endl;
+
+    // symmetric difference
+
+    sortedSingle ss10;
+    ss10.insert(1);
+    ss10.insert(2);
+    ss10.insert(3);
+
+    sortedSingle ss11;
+    ss11.insert(3);
+    ss11.insert(4);
+    ss11.insert(5);
+
+    cout << "Symmetric Difference" << endl;
+    symDifference(ss10, ss11).print(",");
+    cout << endl;
+    cout << "******************************END OF LISTS-CLASS******************************" << endl;
+
+    cout << "******************************STL-LIST******************************" << endl;
+
+    cout << "*************Size and print***************" << endl;
+    std::list<int> stl1 = {1,3};
+    std::list<int> stl2 = {1,2,3,4};
+    cout << "List 1: ";
+    stlPrint(stl1);
+    cout << "The size of list 1 is: " << stlSize(stl1) << endl;
+    cout << "List 2: ";
+    stlPrint(stl2);
+    cout << "The size of list 2 is: " << stlSize(stl2) << endl;
+
+    cout << "***************Insert & Delete***************" << endl;
+    std::list<int> stl = {};
+    cout << "List: ";
+    stlPrint(stl);
+    cout << "Inserting 1 into the list" << endl;
+    stlInsert(stl, 0, 1);
+    cout << "List: ";
+    stlPrint(stl);
+    cout << "Deleting 1 from the list" << endl;
+    stlDelete(stl, 1);
+    cout << "List: ";
+    stlPrint(stl);
+
+    cout << "***************Member***************" << endl;
+    cout << "List 1: ";
+    stlPrint(stl1);
+    cout << "Searching for 1 in list 1" << endl;
+    if(stlMember(stl1, 1))
+        cout << "1 was found in the list" << endl;
+    else
+        cout << "1 was not found in the list" << endl;
+    cout << "Searching for 7 in the list" << endl;
+    if(stlMember(stl1, 7))
+        cout << "7 was found in the list" << endl;
+    else
+        cout << "7 was not found in the list" << endl;
+
+    cout << "**************subset**********************" << endl;
+    std::list<int> stl3 = {1,7,9};
+    cout << "List 1: ";
+    stlPrint(stl1);
+    cout << "List 2: ";
+    stlPrint(stl2);
+    cout << "List 3: ";
+    stlPrint(stl3);
+
+    if(stlSubset(stl1, stl2))
+        cout << "List 1 is a subset of list 2" << endl;
+    else
+        cout << "List 1 is not a subset of List 2" << endl;
+    if(stlSubset(stl3, stl2))
+        cout << "List 3 is a subset of list 2" << endl;
+    else
+        cout << "List 3 is not a subset of List 2" << endl;
+
+    cout << "**********************equality**********************" << endl;
+    std::list<int> stl4 = {1,7,9};
+    cout << "List 2: ";
+    stlPrint(stl2);
+    cout << "List 3: ";
+    stlPrint(stl3);
+    cout << "List 4: ";
+    stlPrint(stl4);
+
+    if(stlEqual(stl2, stl3))
+        cout << "List 2 and List 3 are equal" << endl;
+    else
+        cout << "List 2 and List 3 are not equal" << endl;
+    if(stlEqual(stl3, stl4))
+        cout << "List 3 and List 4 are equal" << endl;
+    else
+        cout << "List 3 and list 4 are not equal" << endl;
+
+    cout << "**********************Union**********************" << endl;
+    std::list<int> stl5 = {1, 8, 10};
+    cout << "List 4: ";
+    stlPrint(stl4);
+    cout << "List 5: ";
+    stlPrint(stl5);
+    std::list<int> newList = stlUnion(stl4, stl5);
+    cout << "The union of List 4 and List 5 is: ";
+    stlPrint(newList);
+
+    cout << "**********************Intersection**********************" << endl;
+    cout << "List 4: ";
+    stlPrint(stl4);
+    cout << "List 5: ";
+    stlPrint(stl5);
+    std::list<int> newList2 = stlIntersection(stl4, stl5);
+    cout << "The intersection of List 4 and List 5 is: ";
+    stlPrint(newList2);
+
+    cout << "**********************Difference**********************" << endl;
+    cout << "List 4: ";
+    stlPrint(stl4);
+    cout << "List 5: ";
+    stlPrint(stl5);
+    std::list<int> newList3 = stlDifference(stl4, stl5);
+    cout << "The difference of List 4 and List 5 is: ";
+    stlPrint(newList3);
+
+    cout << "**********************Symmetric Difference**********************" << endl;
+    cout << "List 4: ";
+    stlPrint(stl4);
+    cout << "List 5: ";
+    stlPrint(stl5);
+    std::list<int> newList4 = stlSymmetricDifference(stl4, stl5);
+    cout << "The symmetric difference of List 4 and List 5 is: ";
+    stlPrint(newList4);
+
+    return 0;

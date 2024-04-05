@@ -1,0 +1,1 @@
+/usr/bin/c++ -g CMakeFiles/program1a.dir/main.cpp.o CMakeFiles/program1a.dir/Part_2/class.cpp.o CMakeFiles/program1a.dir/Part_1/linkedLists.cpp.o CMakeFiles/program1a.dir/Part_3/stl.cpp.o -o program1a 

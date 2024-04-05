@@ -1,0 +1,40 @@
+Part One
+Functions                                                               Complexity
+void insertList(nodePtr temp, nodePtr &headptr);                        O(N)
+void deleteNodeList(nodeType temp_num, nodePtr &headptr);               O(N)
+bool memberList(nodeType num, nodePtr headptr, nodePtr &location);      O(N)
+void printList(nodePtr headptr);                                        O(N)
+int sizeList(nodePtr headptr);                                          O(N)
+bool subsetList(nodePtr head1, nodePtr head2, nodePtr &location);       O(N1*N2) // n1, n2 being lengths of each list respectively
+bool areEqualLists(nodePtr head1, nodePtr head2);                       O(N) || O(min(N1,N2) // depending if they're actually equal or not
+nodePtr theUnionLists(nodePtr head1, nodePtr head2);                    O((N1 + N2)^2)
+nodePtr theIntersectionList(nodePtr head1, nodePtr head2);              O(min(N1,N2))
+nodePtr theDifferenceList(nodePtr head1, nodePtr head2);                O(N1 * N2 * N3) // n3 is the new list length
+nodePtr symDifferenceList(nodePtr head1, nodePtr head2);                O(N1 * N2 * N3)
+
+Part Two
+Functions                                                               Complexity
+bool isSubset(sortedSingle list1, sortedSingle list2);                  O(n1 * log n2)
+bool member(sortedSingle& list, int data);                              O(n)
+bool areEqual(sortedSingle& list1, sortedSingle& list2);                O(min(n1, n2))
+sortedSingle theUnion(sortedSingle list1, sortedSingle list2);          O(min(n1, n2) * n) // n is the new list
+sortedSingle theIntersection(sortedSingle list1, sortedSingle list2);   O(min(n1, n2) * n)
+sortedSingle theDifference(sortedSingle list1, sortedSingle list2);     O(n1 * n2)
+sortedSingle symDifference(sortedSingle list1, sortedSingle list2);     O((n1 + n2) * n)
+bool insert (int item);                                                 O(N)
+bool remove (int item);                                                 O(N)
+
+
+Part Three
+Functions                                                                       Complexity
+void stlPrint(const list<T>& list);                                             O(n)
+bool stlMember(const list<T> &mylist, T num);                                   O(n)
+void stlDelete(list<T> &mylist, T num);                                         O(n)
+int stlSize(list<T> myList);                                                    O(n)
+bool stlSubset(const list<T>& list1, const list<T>& list2);                     O(n1 * log(N2) + n2 * log(n1))
+bool stlEqual(const list<T>& list1, const list<T>& list2);                      O(min(n1,n2))
+void stlInsert(list<T>& mylist, int pos, int value);                            O(n) // n is the position
+list<T> stlUnion(const list<T>& list1, const list<T>& list2);                   O(n1 + n2 + n * log(n)) // n is new list length
+list<T> stlIntersection(const std::list<T>& list1, const std::list<T>& list2)   O(n1 * n2)
+list<T> stlDifference(const std::list<T>& list1, const std::list<T>& list2)     O(n1 * n2)
+list<T> stlSymmetricDifference(const list<T>& list1, const list<T>& list2)       O((n1 + n2) * log(n) + n)
